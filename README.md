@@ -18,16 +18,18 @@ We propose to utilize an interpretable unsupervised feature extraction method of
 
 This repository is structured in the following manner:
 
-`-- plotting`
-    `-- plot_factors.py:` Plotting script to plot the atoms obtained from NCPD.
-`-- scripts`
-    `-- opinion_datagen.py:` Data generation script for Opinion Dynamics. Currently supports Hegselmann-Krause (HK) dynamics.
-    `-- oscillator_datagen.py:` Data generation script for Coupled Oscillator Dynamics. Currently supports Firefly Cellular Automata (FCA) and Kuramoto dynamics.
-`-- utils`
-    `-- __init__.py:` Allows using the utils directory as a package.
-    `-- CO_utils.py:` Utilities and functions to generate the Coupled Oscillator Dynamics data.
-    `-- OD_utils.py:` Utilities and functions to generate the Opinion Dynamics data.
-    `-- helper.py:` Script that contains some helper functions used in other scripts.
+```
+-- plotting
+    -- plot_factors.py: Plotting script to plot the atoms obtained from NCPD.
+-- scripts
+    -- opinion_datagen.py: Data generation script for Opinion Dynamics. Currently supports Hegselmann-Krause (HK) dynamics.
+    -- oscillator_datagen.py: Data generation script for Coupled Oscillator Dynamics. Currently supports Firefly Cellular Automata (FCA) and Kuramoto dynamics.
+-- utils
+    -- __init__.py: Allows using the utils directory as a package.
+    -- CO_utils.py: Utilities and functions to generate the Coupled Oscillator Dynamics data.
+    -- OD_utils.py: Utilities and functions to generate the Opinion Dynamics data.
+    -- helper.py: Script that contains some helper functions used in other scripts.
+```
 
 In order to generate data, for example data tensor for Firefly Cellular Automata (FCA) simulated on 2500 different 20-node subgraphs sampled from a large 450-node Newman-Watts-Strogatz (NWS) parent subgraph with default save directory and seed, run the following command:
 
