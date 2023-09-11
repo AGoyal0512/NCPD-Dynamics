@@ -29,6 +29,7 @@ This repository is structured in the following manner:
     -- CO_utils.py: Utilities and functions to generate the Coupled Oscillator Dynamics data.
     -- OD_utils.py: Utilities and functions to generate the Opinion Dynamics data.
     -- helper.py: Script that contains some helper functions used in other scripts.
+-- main.py: Main file that runs the NCPD algorithm to decompose the data tensor and obtain the factors for further utilization and analysis.
 ```
 
 In order to generate data, for example data tensor for Firefly Cellular Automata (FCA) simulated on 2500 different 20-node subgraphs sampled from a large 450-node Newman-Watts-Strogatz (NWS) parent subgraph with default save directory and seed, run the following command:
