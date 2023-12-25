@@ -101,3 +101,5 @@ with open(os.path.join(save_path, "graph_factors.pkl"), "wb") as f:
     pickle.dump(graph_factors, f)
 with open(os.path.join(save_path, "temporal_factors.pkl"), "wb") as f:
     pickle.dump(temporal_factors, f)
+with open(os.path.join(save_path, "reconstruction_error.pkl"), "wb") as f:
+    pickle.dump(reconstruction_list, f)
