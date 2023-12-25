@@ -35,7 +35,7 @@ This repository is structured in the following manner:
 In order to generate data, for example data tensor for Firefly Cellular Automata (FCA) simulated on 2500 different 20-node subgraphs sampled from a large 450-node Newman-Watts-Strogatz (NWS) parent subgraph with default save directory and seed, run the following command:
 
 ```
-python3 scrips/oscillator_datagen.py -m FCA -n NWS -k 20 
+python3 scripts/oscillator_datagen.py -m FCA -n NWS -k 20 
 ```
 
 Next, in order to utilize this data tensor generated above and apply Rank-4, Rank-8, and Rank-12 Nonnegative CP Decomposition (NCPD) on it to obtain the factors to read from default save location and seed, run the following command:

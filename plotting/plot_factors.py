@@ -8,7 +8,7 @@ import seaborn as sns
 import networkx as nx
 import warnings
 
-sys.path.insert(0, "..")
+sys.path.insert(0, ".")
 from utils import *
 
 warnings.filterwarnings("ignore")
@@ -68,12 +68,12 @@ print("Loaded data successfully...")
 
 
 def plot_CP(temporal_factors, graph_factors, R, retrieve_path):
-    fig = plt.figure(figsize=(15, R // 4 * 3.5))
+    fig = plt.figure(figsize=(15, R // 4 * 6.5))
     rows = R // 4
     columns = 4
     gs = gridspec.GridSpec(rows, columns, wspace=0.05, hspace=0.05)
 
-    height_ratios = [1, 9]
+    height_ratios = [0.5, 4, 5.5]
 
     for i in range(rows):
         for j in range(columns):
@@ -86,7 +86,7 @@ def plot_CP(temporal_factors, graph_factors, R, retrieve_path):
             edges = G.edges()
             weights = [1 * G[u][v]["weight"] for u, v in edges]
 
-            sub_gs = gs[i, j].subgridspec(2, 1, height_ratios=height_ratios)
+            sub_gs = gs[i, j].subgridspec(3, 1, height_ratios=height_ratios)
 
             ax1 = plt.subplot(sub_gs[0])
             sns.heatmap(
@@ -101,17 +101,34 @@ def plot_CP(temporal_factors, graph_factors, R, retrieve_path):
             )
             ax1.set_xticks([])
             ax1.set_yticks([])
+            ax1.xaxis.set_label_position("top")
+            ax1.set_xlabel(r"Iterations $\longrightarrow$")
 
             ax2 = plt.subplot(sub_gs[1])
             nx.draw_spring(G, with_labels=False, node_size=20, width=weights, label="Graph", ax=ax2)
             ax2.set_xticks([])
             ax2.set_yticks([])
 
+            ax3 = plt.subplot(sub_gs[2])
+            sns.heatmap(
+                nx.adjacency_matrix(G).todense(),
+                cmap="viridis",
+                cbar=False,
+                vmin=0,
+                vmax=1,
+                xticklabels=False,
+                yticklabels=False,
+                ax=ax3,
+            )
+            ax3.set_xticks([])
+            ax3.set_yticks([])
+            # ax3.set_xlabel(r"Weighted Adjacency Matrix")
+
     plt.tight_layout()
     plt.subplots_adjust(hspace=0.05)
     plt.show()
 
-    plt.savefig(os.path.join(retrieve_path, f"factors_rank{R}.jpeg"))
+    plt.savefig(os.path.join(retrieve_path, f"factors_rank{R}_new.jpeg"))
 
 
 ranks = [temporal_factors[j].shape[1] for j in range(len(temporal_factors))]

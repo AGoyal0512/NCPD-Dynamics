@@ -5,7 +5,7 @@ import argparse
 import networkx as nx
 from NNetwork import NNetwork as nn
 
-sys.path.insert(0, "..")
+sys.path.insert(0, ".")
 from utils import *
 
 # Build argument parser
@@ -105,10 +105,10 @@ for row in X:
     if args.model == "FCA":
         s = np.random.randint(0, 5, num_nodes_new)
         kappa = 5
-        dynamics, label = phiTable[args.model](G, s, kappa, iteration=50)
+        dynamics, label = phiTable[args.model](G, s, kappa, iteration=150)
     elif args.model == "KURA":
         s = np.random.uniform(-np.pi, np.pi, num_nodes_new)
-        dynamics, label = phiTable[args.model](G, s=s, K=1, iteration=100)
+        dynamics, label = phiTable[args.model](G, s=s, K=1, iteration=150)
     else:
         raise NotImplementedError(f"{args.model} is not yet supported.")
 
