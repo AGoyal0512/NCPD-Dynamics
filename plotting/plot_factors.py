@@ -28,7 +28,7 @@ parser.add_argument(
     "--network",
     default="NWS",
     type=str,
-    choices=["NWS", "BA", "ER"],
+    choices=["NWS", "BA", "ER", "Caltech", "PowerGrid"],
     help="Underlying Parent Network that subgraphs were sampled from",
 )
 parser.add_argument(
