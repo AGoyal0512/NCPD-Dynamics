@@ -3,6 +3,7 @@ import sys
 import copy
 import argparse
 import networkx as nx
+import numpy as np
 from NNetwork import NNetwork as nn
 
 sys.path.insert(0, ".")
@@ -25,7 +26,7 @@ parser.add_argument(
     "--network",
     default="NWS",
     type=str,
-    choices=["NWS", "BA", "ER"],
+    choices=["NWS", "BA", "ER", "Caltech", "PowerGrid"],
     help="Underlying Parent Network to sample subgraphs from",
 )
 parser.add_argument(
@@ -69,6 +70,18 @@ elif args.network == "BA":
     G_net = nx.barabasi_albert_graph(num_nodes, auxiliary)
 elif args.network == "ER":
     G_net = nx.erdos_renyi_graph(num_nodes, probability)
+elif args.network == "Caltech":
+    G_net = nx.Graph()
+    path = "network_data/caltech.txt"
+    edgelist = list(np.genfromtxt(path, delimiter=",", dtype=str))
+    for e in edgelist:
+        G_net.add_edge(e[0], e[1])
+elif args.network == "PowerGrid":
+    G_net = nx.Graph()
+    path = "network_data/power_us_grid.txt"
+    edgelist = list(np.genfromtxt(path, delimiter=",", dtype=str))
+    for e in edgelist:
+        G_net.add_edge(e[0], e[1])
 else:
     raise NotImplementedError(f"{args.network} is not yet supported.")
 
