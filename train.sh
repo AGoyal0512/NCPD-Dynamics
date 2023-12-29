@@ -1,9 +1,2 @@
-python3 main.py -m FCA -n NWS -k 10 -r 4 8 12 16
-python3 main.py -m FCA -n ER -k 10 -r 4 8 12 16
-python3 main.py -m FCA -n BA -k 10 -r 4 8 12 16
-python3 main.py -m FCA -n NWS -k 25 -r 4 8 12 16
-python3 main.py -m FCA -n ER -k 25 -r 4 8 12 16
-python3 main.py -m FCA -n BA -k 25 -r 4 8 12 16
-python3 main.py -m FCA -n NWS -k 35 -r 4 8 12 16
 python3 main.py -m FCA -n ER -k 35 -r 4 8 12 16
 python3 main.py -m FCA -n BA -k 35 -r 4 8 12 16
