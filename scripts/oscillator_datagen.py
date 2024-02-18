@@ -79,7 +79,7 @@ elif args.network == "Caltech":
 elif args.network == "PowerGrid":
     G_net = nx.Graph()
     path = "network_data/power_us_grid.txt"
-    edgelist = list(np.genfromtxt(path, delimiter=",", dtype=str))
+    edgelist = list(np.genfromtxt(path, delimiter=" ", dtype=str))
     for e in edgelist:
         G_net.add_edge(e[0], e[1])
 else:
