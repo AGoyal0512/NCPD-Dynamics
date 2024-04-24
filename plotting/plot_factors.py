@@ -102,7 +102,7 @@ def plot_CP(temporal_factors, graph_factors, R, retrieve_path):
             ax1.set_xticks([])
             ax1.set_yticks([])
             ax1.xaxis.set_label_position("top")
-            ax1.set_xlabel(r"Iterations $\longrightarrow$")
+            ax1.set_xlabel(r"Time $\longrightarrow$")
 
             ax2 = plt.subplot(sub_gs[1])
             nx.draw_spring(G, with_labels=False, node_size=20, width=weights, label="Graph", ax=ax2)
